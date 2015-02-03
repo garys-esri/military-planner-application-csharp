@@ -51,6 +51,18 @@
             <esri:Map x:Name="MyMap">
                 <!-- ArcGIS Online Tiled Basemap Layer -->
                 <esri:ArcGISTiledMapServiceLayer ID="World Topo Map" ServiceUri="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>
+                <esri:FeatureLayer ID="HostileUnits">
+                    <esri:FeatureLayer.FeatureTable>
+                        <esri:ServiceFeatureTable 
+                                    ServiceUri="http://services.arcgis.com/hRUr1F8lE8Jq2uJo/arcgis/rest/services/OperationSafeguardBallot/FeatureServer/1" />
+                    </esri:FeatureLayer.FeatureTable>
+                </esri:FeatureLayer>
+                <esri:FeatureLayer ID="VZKeyPollingPlaces">
+                    <esri:FeatureLayer.FeatureTable>
+                        <esri:ServiceFeatureTable 
+                                    ServiceUri="http://services.arcgis.com/hRUr1F8lE8Jq2uJo/arcgis/rest/services/VZKeyPollingPlaces/FeatureServer/0" />
+                    </esri:FeatureLayer.FeatureTable>
+                </esri:FeatureLayer>
                 <esri:Map.InitialViewpoint>
                     <esri:ViewpointCenter X="-64.66" Y="10.177" Scale="72224" SpatialReferenceID="4326" />
                 </esri:Map.InitialViewpoint>
