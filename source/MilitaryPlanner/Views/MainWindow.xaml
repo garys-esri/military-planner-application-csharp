@@ -4,6 +4,7 @@
         xmlns:views="clr-namespace:MilitaryPlanner.Views"
         xmlns:vm="clr-namespace:MilitaryPlanner.ViewModels"
         Title="Military Planner" WindowState="Maximized"
+        Icon="..\appicon.ico"
         DataContext="{DynamicResource ViewModelMain}">
     <Window.Resources>
         <vm:MainWindowViewModel x:Key="ViewModelMain"/>
