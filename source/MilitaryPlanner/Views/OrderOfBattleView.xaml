@@ -74,7 +74,7 @@
                 </ListBox>
 
             </TabItem>
-            <TabItem Header="Org Chart">
+            <TabItem Header="Org Chart" IsSelected="True">
                 <!-- Tree View for symbols goes here -->
                 <TreeView ItemsSource="{Binding GroupSymbol.FirstGeneration}">
                     <TreeView.ItemContainerStyle>
