@@ -44,6 +44,8 @@ namespace MilitaryPlanner.ViewModels
 
         public string Name { get { return _model.Name; } }
 
+        public string Label { get; set; }
+
         public int ImageSize { get { return _imageSize; } }
 
         public string Keywords { get { return string.Join(", ", _model.Keywords); } }

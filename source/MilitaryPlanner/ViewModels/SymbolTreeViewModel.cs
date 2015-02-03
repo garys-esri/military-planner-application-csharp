@@ -82,6 +82,9 @@ namespace MilitaryPlanner.ViewModels
         [XmlElement]
         public string SIC { get { return _sic; } set { _sic = value; } }
 
+        [XmlElement]
+        public string Label { get; set; }
+
         internal void Save(string filename)
         {
             XmlSerializer x = new XmlSerializer(this.GetType());
@@ -115,9 +118,11 @@ namespace MilitaryPlanner.ViewModels
                 InitializeWrapper(w);
 
                 w.SVM = SymbolLoader.Search(w.SIC);
+                w.SVM.Label = w.Label;
             }
 
             temp.SVM = SymbolLoader.Search(temp.SIC);
+            temp.SVM.Label = temp.Label;
         }
     }
 
@@ -156,6 +161,11 @@ namespace MilitaryPlanner.ViewModels
         public ReadOnlyCollection<SymbolTreeViewModel> Children
         {
             get { return _children; }
+        }
+
+        public string Label
+        {
+            get { return null != _symbolWrapper.SVM.Label ? _symbolWrapper.SVM.Label : _symbolWrapper.SVM.Name; }
         }
 
         public string Name
