@@ -114,7 +114,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <Image Width="{Binding ImageSize}" Height="{Binding ImageSize}" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Stretch="Uniform" Source="{Binding Thumbnail}">
                                 </Image>
-                                <TextBlock Text="{Binding Label}" />
+                                <TextBlock Text="{Binding Label}" FontFamily="Arial" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" />
                                 <i:Interaction.Behaviors>
                                     <b:FrameworkElementDragBehavior/>    
                                 </i:Interaction.Behaviors>
