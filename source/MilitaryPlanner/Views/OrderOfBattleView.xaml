@@ -38,8 +38,8 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <TextBlock HorizontalAlignment="Left" Text="{Binding Name}"/>
-                                <TextBlock HorizontalAlignment="Left" FontSize="10" Foreground="Gray" Text="{Binding Keywords}"/>
+                                <TextBlock HorizontalAlignment="Left" Text="{Binding Name}" FontFamily="Arial" FontSize="18" FontWeight="Bold"/>
+                                <TextBlock HorizontalAlignment="Left" FontFamily="Arial" FontSize="14" Foreground="Gray" Text="{Binding Keywords}"/>
                                 <Grid HorizontalAlignment="Left">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="auto"/>
@@ -60,10 +60,10 @@
                                             <ColumnDefinition Width="auto"/>
                                             <ColumnDefinition Width="auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" Width="100">Category:</TextBlock>
-                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Category}"/>
-                                        <TextBlock Grid.Row="1" Grid.Column="0">Symbol ID:</TextBlock>
-                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SymbolID}"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Width="100" FontFamily="Arial" FontSize="14">Category:</TextBlock>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Category}" FontFamily="Arial" FontSize="14"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="0" FontFamily="Arial" FontSize="14">Symbol ID:</TextBlock>
+                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SymbolID}" FontFamily="Arial" FontSize="14"/>
                                         <!--<TextBlock Grid.Row="2" Grid.Column="0">Stylefile:</TextBlock>
                                         <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding StyleFile}"/>-->
                                     </Grid>
