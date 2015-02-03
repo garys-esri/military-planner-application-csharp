@@ -111,10 +111,12 @@
 							ToolTipService.ToolTip="Go back one phase"/>
 						<Button Content="Next Phase" Margin="5" Command="{Binding PhaseNextCommand}"            
 							ToolTipService.ToolTip="Go forward one phase"/>
-						<Button Content="Save" Margin="5" Command="{Binding SaveCommand}"            
+                        <Button Content="Save" Margin="5" Command="{Binding SaveCommand}"            
 							ToolTipService.ToolTip="Save mission"/>
-                        <Button Content="Measure" Margin="5" Command="{Binding MeasureCommand}"            
-							ToolTipService.ToolTip="Measure" />
+                        <Button Name="Button_Provision" Content="Provision" Margin="5" Click="Button_Provision_Click"
+							ToolTipService.ToolTip="Save mission"/>
+                        <!--Button Content="Measure" Margin="5" Command="{Binding MeasureCommand}"            
+							ToolTipService.ToolTip="Measure" /-->
 					</StackPanel>
 				</StackPanel>
 			</Grid>

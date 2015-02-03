@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using MilitaryPlanner.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +26,21 @@ namespace MilitaryPlanner.Views
         {
             InitializeComponent();
         }
+
+        private void Button_Provision_Click(object sender, RoutedEventArgs e)
+        {
+            // file dialog
+            var sfd = new SaveFileDialog();
+
+            sfd.Filter = "xml files (*.xml)|*.xml";
+            sfd.RestoreDirectory = true;
+
+            if (sfd.ShowDialog() == true)
+            {
+                Mediator.NotifyColleagues(Constants.ACTION_PROVISION_PLAN, sfd.FileName);
+            }
+        }
+    
     }
+
 }
