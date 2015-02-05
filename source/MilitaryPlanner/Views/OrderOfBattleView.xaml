@@ -12,29 +12,27 @@
     <UserControl.Resources>
         <viewModels:OrderOfBattleViewModel x:Key="OOBViewModel" />
     </UserControl.Resources>
-    <Grid DataContext="{StaticResource OOBViewModel}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="24"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="62" />
-        </Grid.ColumnDefinitions>
-
-        <TextBox x:Name="textBoxSearch" Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}">
-            <TextBox.InputBindings>
-                <KeyBinding Key="Enter" Command="{Binding SearchCommand, Mode=TwoWay}" />
-            </TextBox.InputBindings>
-        </TextBox>
-        <Button Grid.Column="1" Content="Search" Command="{Binding SearchCommand}" />
-
-        <TabControl Grid.Row="1" Grid.ColumnSpan="2" TabStripPlacement="Bottom">
-            <TabItem Header="Palette">
-                <ListBox x:Name="SymbolListBox" Grid.ColumnSpan="2" Margin="0,0,0,0" Grid.Row="10" ItemsSource="{Binding Symbols}" PreviewMouseDown="SymbolListBox_PreviewMouseDown"
-                         helper:EventToCommand.Event ="ListBox.SelectionChanged"
-                         helper:EventToCommand.CommandParameter="{Binding SelectedItem}"
-                         helper:EventToCommand.Command="{Binding SymbolChangedCommand}">
+    <TabControl Grid.Row="1" Grid.ColumnSpan="2" TabStripPlacement="Bottom" DataContext="{StaticResource OOBViewModel}">
+        <TabItem Header="Palette">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="62" />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="textBoxSearch" Grid.Row="0" Grid.Column="0" Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding SearchCommand, Mode=TwoWay}" />
+                    </TextBox.InputBindings>
+                </TextBox>
+                <Button Grid.Row="0" Grid.Column="1" Content="Search" Command="{Binding SearchCommand}" />
+                <ListBox x:Name="SymbolListBox" Margin="0,0,0,0" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Symbols}" PreviewMouseDown="SymbolListBox_PreviewMouseDown"
+                            helper:EventToCommand.Event ="ListBox.SelectionChanged"
+                            helper:EventToCommand.CommandParameter="{Binding SelectedItem}"
+                            helper:EventToCommand.Command="{Binding SymbolChangedCommand}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -72,58 +70,57 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
+            </Grid>
 
-            </TabItem>
-            <TabItem Header="Org Chart" IsSelected="True">
-                <!-- Tree View for symbols goes here -->
-                <TreeView ItemsSource="{Binding GroupSymbol.FirstGeneration}">
-                    <TreeView.ItemContainerStyle>
-                        <!-- This Style binds a TreeViewItem to a SymbolGroupViewModel. -->
-                        <Style TargetType="{x:Type TreeViewItem}">
-                            <!--<Setter Property="b:TreeViewItemBehavior.IsTemp" Value="True" />-->
-                            <!--<EventSetter Event="TreeViewItem.MouseMove" Handler="treeViewItem_MouseMove" />-->
-                            <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
-                            <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
-                            <!--<Setter Property="IsEnabled" Value="{Binding IsDragable, Mode=TwoWay}" />-->
-                            <Setter Property="FontWeight" Value="Normal" />
-                            <Style.Triggers>
-                                <Trigger Property="IsSelected" Value="True">
-                                    <Setter Property="FontWeight" Value="Bold" />
-                                </Trigger>
-                                <!--<DataTrigger Binding="{Binding IsDragable}" Value="True">
-                                    <Setter Property="Opacity" Value="1.0" />
-                                </DataTrigger>-->
-                                <!--<DataTrigger Binding="{Binding IsDragable}" Value="False">
-                                    <Setter Property="Opacity" Value="0.25" />
-                                    <Setter Property="Background" Value="DarkGray" />
-                                </DataTrigger>-->
-                                <DataTrigger Binding="{Binding HasBeenDragged}" Value="True">
-                                    <Setter Property="Opacity" Value="0.5" />
-                                </DataTrigger>
-                                <!--<Trigger Property="IsEnabled" Value="False">
+        </TabItem>
+        <TabItem Header="Org Chart" IsSelected="True">
+            <!-- Tree View for symbols goes here -->
+            <TreeView ItemsSource="{Binding GroupSymbol.FirstGeneration}">
+                <TreeView.ItemContainerStyle>
+                    <!-- This Style binds a TreeViewItem to a SymbolGroupViewModel. -->
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <!--<Setter Property="b:TreeViewItemBehavior.IsTemp" Value="True" />-->
+                        <!--<EventSetter Event="TreeViewItem.MouseMove" Handler="treeViewItem_MouseMove" />-->
+                        <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                        <!--<Setter Property="IsEnabled" Value="{Binding IsDragable, Mode=TwoWay}" />-->
+                        <Setter Property="FontWeight" Value="Normal" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="FontWeight" Value="Bold" />
+                            </Trigger>
+                            <!--<DataTrigger Binding="{Binding IsDragable}" Value="True">
+                                <Setter Property="Opacity" Value="1.0" />
+                            </DataTrigger>-->
+                            <!--<DataTrigger Binding="{Binding IsDragable}" Value="False">
                                 <Setter Property="Opacity" Value="0.25" />
-                                </Trigger>
-                                <Trigger Property="IsEnabled" Value="True">
-                                    <Setter Property="Opacity" Value="1.0" />
-                                </Trigger>-->
-                            </Style.Triggers>
-                        </Style>
-                    </TreeView.ItemContainerStyle>
-                    <TreeView.ItemTemplate>
-                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Width="{Binding ImageSize}" Height="{Binding ImageSize}" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Stretch="Uniform" Source="{Binding Thumbnail}">
-                                </Image>
-                                <TextBlock Text="{Binding Label}" FontFamily="Arial" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" />
-                                <i:Interaction.Behaviors>
-                                    <b:FrameworkElementDragBehavior/>    
-                                </i:Interaction.Behaviors>
-                            </StackPanel>
-                        </HierarchicalDataTemplate>
-                    </TreeView.ItemTemplate>
-                </TreeView>
-            </TabItem>
-        </TabControl>
-
-    </Grid>
+                                <Setter Property="Background" Value="DarkGray" />
+                            </DataTrigger>-->
+                            <DataTrigger Binding="{Binding HasBeenDragged}" Value="True">
+                                <Setter Property="Opacity" Value="0.5" />
+                            </DataTrigger>
+                            <!--<Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.25" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="True">
+                                <Setter Property="Opacity" Value="1.0" />
+                            </Trigger>-->
+                        </Style.Triggers>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="{Binding ImageSize}" Height="{Binding ImageSize}" VerticalAlignment="Center" HorizontalAlignment="Left" Stretch="Uniform" Source="{Binding Thumbnail}">
+                            </Image>
+                            <TextBlock Text="{Binding Label}" FontFamily="Arial" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" />
+                            <i:Interaction.Behaviors>
+                                <b:FrameworkElementDragBehavior/>    
+                            </i:Interaction.Behaviors>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </TabItem>
+    </TabControl>
 </UserControl>
