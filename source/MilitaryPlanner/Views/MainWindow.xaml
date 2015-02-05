@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:views="clr-namespace:MilitaryPlanner.Views"
         xmlns:vm="clr-namespace:MilitaryPlanner.ViewModels"
-        Title="Military Planner" WindowState="Maximized"
+        Title="Military Mission Planner" WindowState="Maximized"
         Icon="..\appicon.ico"
         DataContext="{DynamicResource ViewModelMain}">
     <Window.Resources>
@@ -19,6 +19,7 @@
         <Grid.Resources>
         </Grid.Resources>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
@@ -27,11 +28,13 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <UserControl Grid.RowSpan="2" Content="{Binding OOBView}" />
+        <Label Grid.Row="0" Grid.Column="0" FontFamily="Arial" FontSize="36" Foreground="White" Background="#FF4B5320">Military Mission Planner</Label>
+        
+        <UserControl Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Content="{Binding OOBView}" />
 
-        <Slider Grid.Column="1" Grid.Row="1" Minimum="{Binding SliderMinimum}" Maximum="{Binding SliderMaximum}" Value="{Binding SliderValue}" TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" Margin="10,0" SmallChange="1" Cursor="Cross" />
+        <Slider Grid.Row="2" Grid.Column="1" Minimum="{Binding SliderMinimum}" Maximum="{Binding SliderMaximum}" Value="{Binding SliderValue}" TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" Margin="10,0" SmallChange="1" Cursor="Cross" />
 
-        <UserControl Grid.Column="1" Content="{Binding MapView}" Visibility="Visible"/>
+        <UserControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Content="{Binding MapView}" Visibility="Visible"/>
     </Grid>
 </Window>
 
