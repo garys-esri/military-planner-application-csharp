@@ -29,15 +29,10 @@ namespace MilitaryPlanner.Views
 
         private void Button_Provision_Click(object sender, RoutedEventArgs e)
         {
-            // file dialog
-            var sfd = new SaveFileDialog();
-
-            sfd.Filter = "xml files (*.xml)|*.xml";
-            sfd.RestoreDirectory = true;
-
-            if (sfd.ShowDialog() == true)
+            string response = Microsoft.VisualBasic.Interaction.InputBox("Enter the plan name", "Provision: Plan Name", "plan");
+            if (null != response && response.Trim().Length > 0)
             {
-                Mediator.NotifyColleagues(Constants.ACTION_PROVISION_PLAN, sfd.FileName);
+                Mediator.NotifyColleagues(Constants.ACTION_PROVISION_PLAN, @"C:\Users\gary4620\Box Sync\events\FedGIS\FedGIS2015\plenary Runtime demo\plans\" + response + ".xml");
             }
         }
     
