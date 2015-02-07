@@ -952,7 +952,7 @@ namespace MilitaryPlanner.ViewModels
             msg.Add(MilitaryMessage.ActionPropertyName, Constants.MSG_ACTION_UPDATE);
             msg.Add(MilitaryMessage.WkidPropertyName, "3857");
             msg.Add(MilitaryMessage.SicCodePropertyName, symbol.SymbolID);
-            msg.Add(MilitaryMessage.UniqueDesignationPropertyName, "1");
+            //msg.Add(MilitaryMessage.UniqueDesignationPropertyName, "1");
 
             // Construct the Control Points based on the geometry type of the drawn geometry.
             switch (geometry.GeometryType)
@@ -1122,7 +1122,7 @@ namespace MilitaryPlanner.ViewModels
             tam.Add(MilitaryMessage.ActionPropertyName, Constants.MSG_ACTION_UPDATE);
             tam.Add(MilitaryMessage.WkidPropertyName, "3857");
             tam.Add(MilitaryMessage.SicCodePropertyName, symbolViewModel.SymbolID);
-            tam.Add(MilitaryMessage.UniqueDesignationPropertyName, "1");
+            //tam.Add(MilitaryMessage.UniqueDesignationPropertyName, "1");
 
             // Construct the Control Points based on the geometry type of the drawn geometry.
             //MapPoint point = e.Geometry as MapPoint;
