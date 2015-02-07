@@ -85,6 +85,9 @@ namespace MilitaryPlanner.ViewModels
         [XmlElement]
         public string Label { get; set; }
 
+        [XmlElement]
+        public bool Unavailable { get; set; }
+
         internal void Save(string filename)
         {
             XmlSerializer x = new XmlSerializer(this.GetType());
@@ -149,6 +152,7 @@ namespace MilitaryPlanner.ViewModels
             _guid = System.Guid.NewGuid().ToString("D");
             _symbolWrapper = symbolWrapper;
             _parent = parent;
+            HasBeenDragged = symbolWrapper.Unavailable;
 
             _children = new ReadOnlyCollection<SymbolTreeViewModel>(
                 (from child in _symbolWrapper.Children

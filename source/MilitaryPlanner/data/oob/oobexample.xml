@@ -1,25 +1,69 @@
 <?xml version="1.0"?>
 <SymbolViewModelWrapper xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Children>
-    <SIC>SFGPUCIZ-------</SIC>
-    <Label>Infantry Mechanized Brigade</Label>
-  </Children>
-  <Children>
-    <SIC>SFGPUCI--------</SIC>
-    <Label>Infantry Battalion Task Force</Label>
-  </Children>
-  <Children>
-    <SIC>SFGPUCV--------</SIC>
-    <Label>Combat Aviation Battalion Task Force</Label>
-  </Children>
-  <Children>
-    <SIC>SFGPUCIZ-------</SIC>
-    <Label>Infantry Mechanized Battalion</Label>
-  </Children>
-  <Children>
-    <SIC>SFGPUCIZ-------</SIC>
-    <Label>Infantry Mechanized Battalion</Label>
-  </Children>
+
+    <Children>
+        <SIC>SFGPUC---------</SIC>
+        <Label>Ground Units North</Label>
+        <Children>
+            <SIC>SFGPUCIZ-------</SIC>
+            <Label>Infantry Mechanized</Label>
+            <Unavailable>true</Unavailable>
+        </Children>
+        <Children>
+            <SIC>SFGPUCIZ-------</SIC>
+            <Label>Infantry Mechanized</Label>
+            <Unavailable>true</Unavailable>
+        </Children>
+        <Children>
+            <SIC>SFGPUCIZ-------</SIC>
+            <Label>Infantry Mechanized</Label>
+            <Unavailable>true</Unavailable>
+        </Children>
+        <Children>
+            <SIC>SFGPUCRVG------</SIC>
+            <Label>Cavalry</Label>
+            <Unavailable>true</Unavailable>
+        </Children>
+        <Children>
+            <SIC>SFFP-----------</SIC>
+            <Label>Special Operations Forces</Label>
+        </Children>
+    </Children>
+    
+    <Children>
+        <SIC>SFGPUC---------</SIC>
+        <Label>Ground Units South</Label>
+        <Children>
+            <SIC>SFGPUCIZ-------</SIC>
+            <Label>Infantry Mechanized</Label>
+            <Unavailable>true</Unavailable>
+        </Children>
+        <Children>
+            <SIC>SFGPUCE--------</SIC>
+            <Label>Engineer</Label>
+            <Unavailable>true</Unavailable>
+        </Children>
+        <Children>
+            <SIC>SFGPUCI--------</SIC>
+            <Label>Infantry</Label>
+            <Unavailable>true</Unavailable>
+        </Children>
+        <Children>
+            <SIC>SFGPUCRVG------</SIC>
+            <Label>Cavalry</Label>
+            <Unavailable>true</Unavailable>
+        </Children>
+        <Children>
+            <SIC>SFGPUCRVG------</SIC>
+            <Label>Cavalry</Label>
+            <Unavailable>true</Unavailable>
+        </Children>
+        <Children>
+            <SIC>SFFP-----------</SIC>
+            <Label>Special Operations Forces</Label>
+            <Unavailable>true</Unavailable>
+        </Children>
+    </Children>
   <SIC>SFGPUC---------</SIC>
   <Label>Deployable Units</Label>
 </SymbolViewModelWrapper>
