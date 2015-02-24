@@ -32,8 +32,10 @@
         
         <UserControl Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Content="{Binding OOBView}" />
 
-        <Slider Grid.Row="2" Grid.Column="1" Minimum="{Binding SliderMinimum}" Maximum="{Binding SliderMaximum}" Value="{Binding SliderValue}" TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" Margin="10,0" SmallChange="1" Cursor="Cross" />
-
+        <DockPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Button Content="Edit" Margin="5,2,2,2" Command="{Binding EditMissionPhasesCommand}"/>
+            <Slider Minimum="{Binding SliderMinimum}" Maximum="{Binding SliderMaximum}" Value="{Binding SliderValue}" TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" Margin="10,0" SmallChange="1" Cursor="Cross" />
+        </DockPanel>
         <UserControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Content="{Binding MapView}" Visibility="Visible"/>
     </Grid>
 </Window>
