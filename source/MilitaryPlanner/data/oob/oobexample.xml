@@ -17,12 +17,12 @@
         <Children>
             <SIC>SFGPUCIZ-------</SIC>
             <Label>Infantry Mechanized</Label>
-            <Unavailable>true</Unavailable>
+            <Unavailable>false</Unavailable>
         </Children>
         <Children>
             <SIC>SFGPUCRVG------</SIC>
             <Label>Cavalry</Label>
-            <Unavailable>true</Unavailable>
+            <Unavailable>false</Unavailable>
         </Children>
         <Children>
             <SIC>SFFP-----------</SIC>
