@@ -1,3 +1,5 @@
+using MilitaryPlanner.Helpers;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MilitaryPlanner.Views
