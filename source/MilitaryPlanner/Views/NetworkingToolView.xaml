@@ -1,16 +1,15 @@
-﻿<Popup x:Class="MilitaryPlanner.Views.NetworkingToolView"
+﻿<Window x:Class="MilitaryPlanner.Views.NetworkingToolView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013"
              mc:Ignorable="d" 
-             IsOpen="{Binding IsToolOpen}"
-             PopupAnimation="Fade"
-             Placement="Relative"
-             VerticalOffset="70"
-             HorizontalOffset="10"
-       MaxHeight="640"
+             Visibility="{Binding ToolVisibility, FallbackValue=Hidden}"
+             WindowStyle="ToolWindow"
+             WindowStartupLocation="CenterOwner"
+             SizeToContent="WidthAndHeight"
+             MaxHeight="640"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid x:Name="LayoutRoot">
         <Grid.Resources>
@@ -32,13 +31,39 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical">
+                    <Expander Header="Address input" IsExpanded="{Binding AddressIsExpanded}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="From:"/>
+                            <TextBox Grid.Column="1" Margin="3,3,3,3" Text="{Binding FromAddress, UpdateSourceTrigger=PropertyChanged}">
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding GetDirectionsCommand}" />
+                                </TextBox.InputBindings>
+                            </TextBox>
+                            <TextBlock Grid.Row="1" Text="To:"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Margin="3,3,3,3" Text="{Binding ToAddress, UpdateSourceTrigger=PropertyChanged}">
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding GetDirectionsCommand}" />
+                                </TextBox.InputBindings>
+                            </TextBox>
+                            <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Get Directions" Command="{Binding GetDirectionsCommand}"/>
+                        </Grid>
+                    </Expander>
+                    <TextBlock Text="Tap one or more stop locations on the map then double tap the final stop to calculate a simple route with directions." 
+                           TextWrapping="Wrap" Visibility="{Binding PanelInstructionsVisibility}"/>
+                </StackPanel>
+                <ProgressBar Grid.Row="1" IsIndeterminate="True" Visibility="{Binding ProgressVisibility}" Margin="0,12,0,0" />
 
-                <TextBlock Text="Tap one or more stop locations on the map then double tap the final stop to calculate a simple route with directions." 
-                           TextWrapping="Wrap"/>
-
-                <ProgressBar x:Name="progress" Grid.Row="1" IsIndeterminate="True" Visibility="{Binding ProgressVisibility}" Margin="0,12,0,0" />
-
-                <Grid x:Name="panelResults" Grid.Row="2" Margin="0,12,0,0" Visibility="{Binding PanelResultsVisibility}">
+                <Grid Grid.Row="2" Margin="0,12,0,0" Visibility="{Binding PanelResultsVisibility}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -66,4 +91,4 @@
             </Grid>
         </Border>
     </Grid>
-</Popup>
+</Window>

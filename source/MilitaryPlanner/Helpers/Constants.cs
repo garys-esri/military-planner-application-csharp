@@ -24,6 +24,7 @@ namespace MilitaryPlanner.Helpers
         public const string ACTION_MISSION_LOADED = "MissionLoaded";
         public const string ACTION_SAVE_MISSION = "SaveMission";
         public const string ACTION_OPEN_MISSION = "OpenMission";
+        public const string ACTION_NEW_MISSION = "NewMission";
         public const string ACTION_MSG_PROCESSED = "MessageProcessed";
         public const string ACTION_PHASE_ADDED = "PhaseAdded";
         public const string ACTION_PHASE_NEXT = "PhaseNext";
@@ -36,6 +37,7 @@ namespace MilitaryPlanner.Helpers
 
         public const string ACTION_EDIT_MISSION_PHASES = "EditMissionPhases";
         public const string ACTION_MISSION_CLONED = "EditMissionCloned";
+        public const string ACTION_CLONE_MISSION = "CloneMission";
 
         public const string MSG_ACTION_UPDATE = "update";
         public const string MSG_ACTION_REMOVE = "remove";
@@ -44,6 +46,14 @@ namespace MilitaryPlanner.Helpers
         public const string ACTION_GOTO_XY_COORDINATES = "ActionGotoXYCoordinates";
 
         public const string ACTION_COORDINATE_READOUT_FORMAT_CHANGED = "ActionCoordinateReadoutFormatChanged";
+
+        public const string ACTION_EDIT_GEOMETRY = "ActionEditGeometry";
+        public const string ACTION_EDIT_UNDO = "ActionEditUndo";
+        public const string ACTION_EDIT_REDO = "ActionEditRedo";
+
+        public const string ACTION_UPDATE_BASEMAP = "ActionUpdateBasemap";
+
+        public const string ACTION_ROUTING_GET_DIRECTIONS = "ActionRoutingGetDirections";
 
         public const int SAVE_AS_MISSION = 1;
         public const int SAVE_AS_GEOMESSAGES = 2;
